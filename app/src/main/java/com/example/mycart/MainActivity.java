@@ -56,24 +56,26 @@ public class MainActivity extends AppCompatActivity {
                 String result = obj.getMessage().trim();
                 if(result.equals("exists"))
                 {
+                    Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                     email_login.setText("");
                     pass_login.setText("");
-                    Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),Dashboard.class));
                 }
                 else if (response.equals("NotExist"))
                 {
+                    Toast.makeText(MainActivity.this, "Envalid Username or Password!!", Toast.LENGTH_SHORT).show();
                     email_login.setText("");
                     pass_login.setText("");
-                    Toast.makeText(MainActivity.this, "Envalid Username or Password!!", Toast.LENGTH_SHORT).show();
+
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Login Failed!!", Toast.LENGTH_SHORT).show();
                 email_login.setText("");
                 pass_login.setText("");
-                Toast.makeText(MainActivity.this, "Login Failed!!", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
