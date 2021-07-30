@@ -50,14 +50,14 @@ public class RegistrationActivity extends AppCompatActivity {
     private void process_reg(String name, String email, String mobile, String password, String address)
     {
 
-        Call<ResponseModelSignup> call = ApiController.getInstance().getApi()
+        Call<ResponseModel> call = ApiController.getInstance().getApi()
                                     .getRegister(name,email,password,mobile,address);
 
-        call.enqueue(new Callback<ResponseModelSignup>() {
+        call.enqueue(new Callback<ResponseModel>() {
             @Override
-            public void onResponse(Call<ResponseModelSignup> call, Response<ResponseModelSignup> response)
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response)
             {
-                ResponseModelSignup obj = response.body();
+                ResponseModel obj = response.body();
                 String result = obj.getMessage().trim();
                 if(result.equals("inserted"))
                 {
@@ -82,7 +82,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseModelSignup> call, Throwable t)
+            public void onFailure(Call<ResponseModel> call, Throwable t)
             {
                 signup_result.setText("Registration Failed!!");
                 signup_result.setTextColor(Color.RED);
