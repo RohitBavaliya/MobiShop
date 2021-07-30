@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     email_login.setText("");
                     pass_login.setText("");
                     Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
                 }
                 else if (response.equals("NotExist"))
                 {
