@@ -62,7 +62,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:text="Name"
-        android:textColor="#000"
+        android:textColor="@color/purple_700"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -75,7 +75,8 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/input_shape"
         android:hint="Enter Name"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHint="#B71C1C" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +84,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:text="Email"
-        android:textColor="#000"
+        android:textColor="@color/purple_700"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -96,7 +97,8 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/input_shape"
         android:hint="Enter the Email"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHint="#B71C1C"  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,7 +106,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:text="Mobile"
-        android:textColor="#000"
+        android:textColor="@color/purple_700"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -117,7 +119,8 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/input_shape"
         android:hint="Enter the Mobile Number"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHint="#B71C1C"  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -125,7 +128,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:text="Password"
-        android:textColor="#000"
+        android:textColor="@color/purple_700"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -138,7 +141,8 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/input_shape"
         android:hint="Enter the Password"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHint="#B71C1C"  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -146,7 +150,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:text="Address"
-        android:textColor="#000"
+        android:textColor="@color/purple_700"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -159,7 +163,8 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/input_shape"
         android:hint="Enter Address"
-        android:textColorHint="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHint="#B71C1C" />
 
     <Button
         android:id="@+id/btn_reg"
