@@ -7,6 +7,13 @@ import retrofit2.http.POST;
 
 public interface ApiSet {
     @FormUrlEncoded
+    @POST("login.php")
+    Call<ResponseModel> getLogin(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
     @POST("user_signup.php")
     Call<ResponseModel> getRegister(
             @Field("name") String name,
@@ -16,9 +23,5 @@ public interface ApiSet {
             @Field("address") String address
     );
 
-    @POST("login.php")
-    Call<ResponseModel> getLogin(
-            @Field("email") String email,
-            @Field("password") String password
-    );
+
 }
