@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     login_result.setText("Login Successfull");
                     email_login.setText("");
                     pass_login.setText("");
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
 
                 }
 
