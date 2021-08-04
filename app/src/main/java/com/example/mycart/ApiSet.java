@@ -1,8 +1,11 @@
 package com.example.mycart;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiSet {
@@ -22,6 +25,9 @@ public interface ApiSet {
             @Field("mobile") String mobile,
             @Field("address") String address
     );
+
+    @GET("item_data_fetch.php")
+    Call<List<Model_item_data>> getFetchData();
 
 
 }
