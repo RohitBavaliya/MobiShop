@@ -10,10 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mycart.models.Model_item_data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Adapter_Dashboard extends RecyclerView.Adapter<ItemViewHolder> {
     List<Model_item_data> product_data;

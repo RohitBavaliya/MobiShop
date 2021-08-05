@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.mycart.models.Model_Register;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,7 +18,7 @@ import retrofit2.Response;
 public class RegistrationActivity extends AppCompatActivity {
     EditText name_reg, email_reg, mobile_reg, password_reg, address_reg;
     Button btn_reg;
-    TextView signup_result;
+    TextView signup_result, signup_header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         signup_result = (TextView) findViewById(R.id.signup_result);
+        signup_header = (TextView) findViewById(R.id.signup_header);
         name_reg = (EditText) findViewById(R.id.name_reg);
         email_reg = (EditText) findViewById(R.id.email_reg);
         mobile_reg = (EditText) findViewById(R.id.mobile_reg);
@@ -50,17 +53,18 @@ public class RegistrationActivity extends AppCompatActivity {
     private void process_reg(String name, String email, String mobile, String password, String address)
     {
 
-        Call<ResponseModel> call = ApiController.getInstance().getApi()
+        Call<Model_Register> call = ApiController.getInstance().getApi()
                                     .getRegister(name,email,password,mobile,address);
 
-        call.enqueue(new Callback<ResponseModel>() {
+        call.enqueue(new Callback<Model_Register>() {
             @Override
-            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response)
+            public void onResponse(Call<Model_Register> call, Response<Model_Register> response)
             {
-                ResponseModel obj = response.body();
+                Model_Register obj = response.body();
                 String result = obj.getMessage().trim();
                 if(result.equals("inserted"))
                 {
+                    signup_header.setVisibility(View.INVISIBLE);
                     signup_result.setText("Registration Successfull");
                     name_reg.setText("");
                     email_reg.setText("");
@@ -82,7 +86,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseModel> call, Throwable t)
+            public void onFailure(Call<Model_Register> call, Throwable t)
             {
                 signup_result.setText("Registration Failed!!");
                 signup_result.setTextColor(Color.RED);

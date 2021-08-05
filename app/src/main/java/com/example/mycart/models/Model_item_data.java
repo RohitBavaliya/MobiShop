@@ -1,6 +1,7 @@
-package com.example.mycart;
+package com.example.mycart.models;
 
 public class Model_item_data {
+
     String header,image,price;
 
     public Model_item_data(String header, String image, String price) {

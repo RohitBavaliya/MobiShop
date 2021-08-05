@@ -1,13 +1,13 @@
-package com.example.mycart;
+package com.example.mycart.models;
 
-public class ResponseModel {
+public class Model_Register {
     String message;
 
-    public ResponseModel(String message) {
+    public Model_Register(String message) {
         this.message = message;
     }
 
-    public ResponseModel() {
+    public Model_Register() {
     }
 
     public String getMessage() {

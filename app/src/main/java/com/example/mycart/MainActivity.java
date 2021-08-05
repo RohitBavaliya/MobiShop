@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.mycart.models.Model_Login;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    TextView go_register, login_result;
+    TextView go_register, login_result, login_header;
     EditText email_login, pass_login;
     Button btn_login;
 
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         email_login = (EditText) findViewById(R.id.email_login);
         pass_login = (EditText) findViewById(R.id.pass_login);
         btn_login = (Button) findViewById(R.id.btn_login);
+        login_header = (TextView) findViewById(R.id.login_header);
         login_result = (TextView) findViewById(R.id.login_result);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -48,17 +52,18 @@ public class MainActivity extends AppCompatActivity {
     private void process_login(String email, String password)
     {
 
-        Call<ResponseModel> call = ApiController.getInstance().getApi()
+        Call<Model_Login> call = ApiController.getInstance().getApi()
                 .getLogin(email,password);
 
-        call.enqueue(new Callback<ResponseModel>() {
+        call.enqueue(new Callback<Model_Login>() {
             @Override
-            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response)
+            public void onResponse(Call<Model_Login> call, Response<Model_Login> response)
             {
-                ResponseModel obj = response.body();
+                Model_Login obj = response.body();
                 String result = obj.getMessage().trim();
                 if(result.equals("Exist"))
                 {
+                    login_header.setVisibility(View.INVISIBLE);
                     login_result.setText("Login Successfull");
                     email_login.setText("");
                     pass_login.setText("");
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseModel> call, Throwable t)
+            public void onFailure(Call<Model_Login> call, Throwable t)
             {
                 login_result.setText("Login Failed!!");
                 login_result.setTextColor(Color.RED);
