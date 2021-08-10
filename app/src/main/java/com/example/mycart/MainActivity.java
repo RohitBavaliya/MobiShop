@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     TextView go_register, login_result, login_header;
     EditText email_login, pass_login;
     Button btn_login;
+    CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_login);
         login_header = (TextView) findViewById(R.id.login_header);
         login_result = (TextView) findViewById(R.id.login_result);
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
 
         // check user already login or not
         checkUserExist();
@@ -78,12 +81,15 @@ public class MainActivity extends AppCompatActivity {
                 {
                     login_header.setVisibility(View.INVISIBLE);
 
-                    SharedPreferences sharedPreferences = getSharedPreferences("details_login",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("email",email);
-                    editor.putString("password",password);
-                    editor.commit();
-                    editor.apply();
+                    if(checkBox.isChecked())
+                    {
+                        SharedPreferences sharedPreferences = getSharedPreferences("details_login",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("email",email);
+                        editor.putString("password",password);
+                        editor.commit();
+                        editor.apply();
+                    }
 
                     login_result.setText("Login Successfull");
                     email_login.setText("");
