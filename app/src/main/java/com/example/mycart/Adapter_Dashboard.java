@@ -1,6 +1,7 @@
 package com.example.mycart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,18 @@ public class Adapter_Dashboard extends RecyclerView.Adapter<ItemViewHolder> {
         Glide.with(holder.header.getContext())
                 .load("http://192.168.93.146/ecomapi/images/"
                         +product_data.get(position).getImage()).into(holder.itemImage);
+        holder.itemImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Item_details.class);
+                intent.putExtra("product_header",product_data.get(position).getHeader());
+                intent.putExtra("product_image",product_data.get(position).getImage());
+                intent.putExtra("product_price",product_data.get(position).getPrice());
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
