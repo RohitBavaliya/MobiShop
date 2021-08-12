@@ -1,5 +1,6 @@
 package com.example.mycart;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class Adapter_Dashboard extends RecyclerView.Adapter<ItemViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.header.setText(product_data.get(position).getHeader());
         holder.price.setText(product_data.get(position).getPrice());
         Glide.with(holder.header.getContext())

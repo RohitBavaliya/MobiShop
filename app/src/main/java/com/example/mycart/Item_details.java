@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class Item_details extends AppCompatActivity {
 
     TextView product_header,product_price;
@@ -27,6 +29,7 @@ public class Item_details extends AppCompatActivity {
 
         product_header.setText(getIntent().getStringExtra("product_header"));
         product_price.setText(getIntent().getStringExtra("product_price"));
-        product_image.setImageResource(getIntent().getIntExtra("product_image",0));
+        String url = "http://192.168.93.146/ecomapi/images/"+getIntent().getStringExtra("product_image");
+        Glide.with(Item_details.this).load(url).into(product_image);
     }
 }
