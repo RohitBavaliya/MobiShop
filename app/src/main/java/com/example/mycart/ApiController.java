@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiController {
-    final static String url = "http://192.168.93.146/ecomapi/";
+    final static String url = "http://192.168.50.146/ecomapi/";
     private static ApiController controller;
     private static Retrofit retrofit;
 

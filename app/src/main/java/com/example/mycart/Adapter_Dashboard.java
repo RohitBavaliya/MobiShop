@@ -43,7 +43,7 @@ public class Adapter_Dashboard extends RecyclerView.Adapter<ItemViewHolder> {
         holder.header.setText(product_data.get(position).getHeader());
         holder.price.setText(product_data.get(position).getPrice());
         Glide.with(holder.header.getContext())
-                .load("http://192.168.93.146/ecomapi/images/"
+                .load("http://192.168.50.146/ecomapi/images/"
                         +product_data.get(position).getImage()).into(holder.itemImage);
         holder.itemImage.setOnClickListener(new View.OnClickListener() {
             @Override
