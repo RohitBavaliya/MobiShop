@@ -2,6 +2,7 @@ package com.example.mycart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -71,6 +72,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     mobile_reg.setText("");
                     password_reg.setText("");
                     address_reg.setText("");
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }
 
                 if(result.equals("exists"))

@@ -41,7 +41,7 @@ public class Item_details extends AppCompatActivity implements PaymentResultList
 
         product_header.setText(getIntent().getStringExtra("product_header"));
         product_price.setText(getIntent().getStringExtra("product_price"));
-        String url = "http://192.168.50.146/ecomapi/images/"+getIntent().getStringExtra("product_image");
+        String url = "http://192.168.35.146/ecomapi/images/"+getIntent().getStringExtra("product_image");
         Glide.with(Item_details.this).load(url).into(product_image);
 
         btn_checkout.setOnClickListener(new View.OnClickListener() {
